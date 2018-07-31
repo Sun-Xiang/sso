@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	<head>
+		<!-- charset -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+		<title>富聿通</title>
+		<script th:src="@{/js/jquery-1.12.4.min.js}"></script>
+		<script th:src="@{/js/const.js}"></script>
+		<link rel="stylesheet" th:href="@{/css/verificationCode.css}" />
+		<script type="text/javascript" th:src="@{/js/jquery.cookie.js}"></script>
+		<script th:src="@{/js/user.js}"></script>
+		<!-- <script th:src="@{/js/verificationCode.js}"></script> -->
+		<script type="text/javascript">
+			//回车键提交表单
+			$(document).keydown(function(event){
+				if(event.keyCode ==13){
+				 verifyInput();
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<form id="form1" name="form_register" action="">
+			<input type="hidden" name="check_phone" id="check_phone" />
+			<table width="800" border="0" align="center">
+				<tr align="right">
+					<th colspan="4" align="center" bgcolor="#abc4e4" scope="col">用户注册</th>
+				</tr>
+				<tr>
+					<td height="50" align="right">手机号：</td>
+					<td><input name="mobile" type="text" id="mobile" onfocus="clearMsg('div_phone')" onblur="verifyphone(mobile.value,'div_phone');" /></td>
+					<td><div id="div_phone"></div></td>
+					<td><code id="font">长度为11位数字</code></td>
+				</tr>
+				<tr>
+					<td height="50" align="right">请输入密码：</td>
+					<td><input name="password" type="password" id="password" onblur="verifyPass(password.value,'div_pwd1');" onfocus="clearMsg('div_pwd1');" /></td>
+					<td><div id="div_pwd1"></div></td>
+					<td rowspan="2"><code id="font">英文字母阿拉伯数字组合，英文区分大小写，长度为6-20位</code></td>
+				</tr>
+				<tr>
+					<td height="50" align="right">再次输入密码：</td>
+					<td><input name="txt_Pwd2" type="password" id="txt_Pwd2" onfocus="clearMsg('div_pwd2')"	onblur="verifyRePass(password.value,txt_Pwd2.value,'div_pwd2');" /></td>
+					<td><div id="div_pwd2"></div></td>
+				</tr>
+				<tr>
+					<td height="50" align="right">验证码：</td>
+					<td colspan="2"><input type = "text" id ="input" value="" width="80" onfocus="clearMsg('div_input')" onblur="validate()"/><input type = "button" id="code" onclick="createCode()"/></td>
+					<td width="150px"><div id="div_input"></div></td>
+				</tr>
+				<tr>
+					<td height="50" colspan="4" align="center">
+						<input name="" type="button" value="提交" onclick="verifyInput()"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

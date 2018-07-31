@@ -1,0 +1,32 @@
+
+#本地配置加载地址
+
+#spring:
+#  application:
+#    name: sso
+#  cloud: 
+#    config: 
+#      label: develop
+#      profile: test
+#      uri: http://localhost:8888/
+#endpoints:
+#  refresh:
+#    enabled: true
+#    sensitive: false
+
+#远程测试服务器配置加载地址
+#
+#spring:
+#  application:
+#    name: sso
+#  cloud: 
+#    config: 
+#      label: develop
+#      profile: test
+#      uri: http://10.10.10.109:8888/
+#server:
+#  port: 8881
+#endpoints:
+#  refresh:
+#    enabled: true
+#    sensitive: false

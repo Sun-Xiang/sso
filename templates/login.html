@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	<head>
+		 <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon" />
+		<!-- charset -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>富聿通</title>
+		<script th:src="@{/js/jquery-1.12.4.min.js}"></script>
+		<script th:src="@{/js/const.js}"></script>
+		<script type="text/javascript" th:src="@{/js/jquery.cookie.js}"></script>
+		<script type="text/javascript">
+			//回车键提交表单
+			$(document).keydown(function(event){
+				if(event.keyCode ==13){
+				 verifyInput();
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<form id="formlogin" name="formlogin" action="">
+			<table width="800" border="0" align="center" >
+				<tr align="right">
+					<th colspan="6" align="center" bgcolor="#abc4e4" scope="col">用户登录</th>
+				</tr>
+				<tr>
+					<td height="50" align="right" width="200">手机号：</td>
+					<td width="200" height="50" colspan="3">
+						<input name="mobile" type="text" id="loginname" />
+					</td>
+				</tr>
+				<tr>
+					<td height="50" align="right">输入密码：</td>
+					<td colspan="3">
+						<input name="password" type="password" id="loginname"/></td>
+				</tr>
+				<tr>
+					<td height="50" colspan="4" align="right">
+						<input name="" type="button" value="提交" th:onclick="'verifyInput(\''+${redirect}+'\')'" th:if="${redirect}!=null"/>
+						<input name="" type="button" value="提交" th:onclick="'verifyInput()'" th:if="${redirect}==null"/>
+					</td>
+					<td height="50" >
+						<input name="" type="button" value="注册" th:onclick="'register(\''+${redirect}+'\')'" th:if="${redirect}!=null"/>
+						<input name="" type="button" value="注册" th:onclick="'register()'" th:if="${redirect}==null"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<script th:src="@{/js/login.js}"></script>
+	</body>
+</html>

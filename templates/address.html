@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	<head>
+        <!-- charset -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+		<script type="text/javascript" th:src="@{/js/jquery-1.12.4.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/const.js}"></script>
+		<script type="text/javascript" th:src="@{/js/jquery.cookie.js}"></script>
+	</head>
+	
+	<body>
+		<form id="formitemadd" name="formitemadd" method="POST" action="" onsubmit="return checkaddress(this);">
+			<input type="hidden" name="userInfoId" id="userInfoId" th:value="${userId}" />
+			<input type="hidden" name="city" id="city" value="" />
+			<input type="hidden" name="province" id="province" value="1" />
+			<input type="hidden" name="district" id="district" value="1" />
+			<div>
+				<div>
+					<span>选择地址:</span>
+					<select class="address" name="address_1" id="address_1" onchange="addressChanged(this,2)">
+						<option value="">请选择</option>
+					</select>
+				</div>
+				<div>
+					<span>详细地址:</span>
+					<input type="text" name="detail" id="detail" value="" style="width:300px;" />
+				</div>
+				<div>
+					<span>收件人姓名:</span>
+					<input type="text" name="receiverName" id="receiverName" value=""/>
+				</div>
+				<div>
+					<span>收件人联系电话:</span>
+					<input type="text" name="receiverMobile" id="receiverMobile" value=""/>
+				</div>
+				<div>
+					<span>是否设置为默认地址:</span>
+					<input type="checkbox" name="isDefault" id="isDefault" value="1"/>
+				</div>
+				<div>
+					<input name="" type="submit" value="完成" />
+				</div>
+			</div>
+		</form>
+	</body>
+	<script type="text/javascript" th:src="@{/js/address.js}"></script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	<head>
+        <!-- charset -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+		<script type="text/javascript" th:src="@{/js/jquery-1.12.4.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/const.js}"></script>
+		<script type="text/javascript" th:src="@{/js/jquery.cookie.js}"></script>
+	</head>
+	
+	<body>
+		<div>
+			<br>
+				<a th:if="${#lists.size(addressList)} == 0">暂无地址</a>
+			</br>
+			<tr th:each="address : ${addressList}">
+				<br>
+					<td>地区:<a  th:text="${address.city}"></a></td>
+				</br>
+				<br>
+					<td>住址:<a  th:text="${address.detail}"></a></td>
+				</br>
+				<br>
+					<td>收件人:<a  th:text="${address.receiverName}"></a></td>
+				</br>
+				<br>
+					<td>电话:<a  th:text="${address.receiverMobile}"></a></td>
+				</br>	
+				<br>
+					<td><a th:text="${address.isDefault} == 1 ? '默认地址' : ''"></a></td>
+				</br>
+				<div>
+					<input type="button" value="删除地址" th:onclick="'addressEdit('+${address.id}+')'"/>
+				</div>
+			</tr>
+			<a style="float:right;" th:href="'./usermessageinfo?salerId='+${salerId}">返回信息页</a>
+			<ul id="list_page"></ul>
+		</div>
+			
+	</body>
+	<script type="text/javascript" th:src="@{/js/address.js}"></script>
+</html>

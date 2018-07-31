@@ -1,0 +1,5 @@
+BUILD_ID=SSO
+cd /opt/exec/sso
+rm -rf sso-0.0.1-SNAPSHOT.jar
+cp /root/.jenkins/workspace/sso/target/sso-0.0.1-SNAPSHOT.jar /opt/exec/sso
+sh sso.sh
