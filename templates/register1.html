@@ -7,6 +7,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 		<title>富聿通</title>
+		<link charset="utf-8" type="text/css" rel="stylesheet" href="../static/css/login.css">
+		<link charset="utf-8" type="text/css" rel="stylesheet" href="../static/css/1login.css">
 		<script th:src="@{/js/jquery-1.12.4.min.js}"></script>
 		<script th:src="@{/js/const.js}"></script>
 		<link rel="stylesheet" th:href="@{/css/verificationCode.css}" />
@@ -23,27 +25,27 @@
 		</script>
 	</head>
 	<body>
-		<form id="form1" name="form_register" action="">
+		<form id="form_register" name="form_register" action="">
 			<input type="hidden" name="check_name" id="check_name" /> 
 			<input type="hidden" name="check_phone" id="check_phone" />
 			<table width="800" border="0" align="center">
-				<tr align="right">
+				<!-- <tr align="right">
 					<th colspan="6" align="center" bgcolor="#abc4e4" scope="col">用户注册</th>
-				</tr>
+				</tr> -->
 				<tr>
 					<td height="50" align="right" width="200">昵称：</td>
 					<td width="200" height="50" colspan="3">
 						<input name="nickName" type="text" id="nickName" onfocus="clearMsg('div_uname');"	onblur="verifyUName(nickName.value,'div_uname');" />
 					</td>
 					<td width="200" height="50"><div id="div_uname"></div>&nbsp;</td>
-					<td width="200" height="50"><code id="font">英文字母阿拉伯数字下划线组合，长度为6-20位，只能以字母开头</code></td>
+					<td width="200" height="50"><code class="error-mes">英文字母阿拉伯数字下划线组合，长度为6-20位，只能以字母开头</code></td>
 				</tr>
 				<tr>
 					<td height="50" align="right">手机号：</td>
 					<td colspan="3">
 						<input name="mobile" type="text" id="mobile" onfocus="clearMsg('div_phone')" onblur="verifyphone(mobile.value,'div_phone');" /></td>
 					<td><div id="div_phone"></div></td>
-					<td><code id="font">长度为11位数字</code></td>
+					<td><code class="error-mes">长度为11位数字</code></td>
 				</tr>
 				<tr>
 					<td height="50" align="right">姓名：</td>
@@ -56,14 +58,14 @@
 					<td colspan="3">
 						<input name="idCard" type="text" id="idCard" onfocus="clearMsg('div_code');" onblur="verifyIdCode(idCard.value,'div_code');"/></td>
 					<td width="200" height="50"><div id="div_code"></div>&nbsp;</td>
-					<td width="200" height="50"><code id="font">输入18位的二代身份证</code></td>
+					<td width="200" height="50"><code class="error-mes">输入18位的二代身份证</code></td>
 				</tr>
 				<tr>
 					<td height="50" align="right">输入密码：</td>
 					<td colspan="3">
 						<input name="password" type="password" id="password" onblur="verifyPass(password.value,'div_pwd1');" onfocus="clearMsg('div_pwd1');" /></td>
 					<td><div id="div_pwd1"></div></td>
-					<td rowspan="2"><code id="font">英文字母阿拉伯数字组合，英文区分大小写，长度为6-20位</code></td>
+					<td rowspan="2"><code class="error-mes">英文字母阿拉伯数字组合，英文区分大小写，长度为6-20位</code></td>
 				</tr>
 				<tr>
 					<td height="50" align="right">验证密码：</td>
@@ -75,16 +77,17 @@
 					<td colspan="3">
 						<input name="mail" type="text" id="mail" onfocus="clearMsg('div_mail')" onblur="verifyMail(mail.value,'div_mail')" /></td>
 					<td><div id="div_mail"></div></td>
-					<td><code id="font">方便你取得邮箱账号相关的重要信息，包括找回密码</code></td>
+					<td><code class="error-mes">方便你取得邮箱账号相关的重要信息，包括找回密码</code></td>
 				</tr>
 				<tr>
 					<td height="50" align="right">验证码：</td>
-					<td colspan="3"><input type = "text" id ="input" value="" width="80" onfocus="clearMsg('div_input')" onblur="validate()"/><input type = "button" id="code" onclick="createCode()"/></td>
+					<td colspan="3"><input type = "text" id ="input" value="" width="80" onfocus="clearMsg('div_input')" onblur="validate()"/><input type = "image" id="code" onclick="createCode()"/></td>
 					<td width="150px"><div id="div_input"></div></td>
 				</tr>
 				<tr>
-					<td height="50" colspan="6" align="left">
-						<input name="" type="button" value="提交" onclick="verifyInput()"/>
+						<td height="50"></td>
+					<td height="50" colspan="5" align="left">
+						<input name="" class="submit-btn" type="button" value="提交" onclick="verifyInput()"/>
 					</td>
 				</tr>
 			</table>
